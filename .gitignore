@@ -1,0 +1,9 @@
+# Project place file
+/keystone.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+test
