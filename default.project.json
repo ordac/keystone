@@ -1,6 +1,7 @@
 {
-  "name": "Keystone",
-  "tree": {
-    "$path": "src"
-  }
+    "name": "Keystone",
+    "tree": {
+        "$className": "ModuleScript",
+        "$path": "src"
+    }
 }
