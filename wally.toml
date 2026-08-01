@@ -1,5 +1,5 @@
 [package]
-name = "ordac-dev/keystone"
+name = "ordac/keystone"
 description = "A session-locked player data library for Roblox"
 version = "0.1.0"
 license = "MIT"
