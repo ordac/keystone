@@ -1,10 +1,13 @@
-# Project place file
-/keystone.rbxlx
+/*.rbxlx
+/*.rbxl
 
-# Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
 
-sourcemap.json
-Packages/
-test/
+/Packages/
+
+/sourcemap.json
+
+.DS_Store
+Thumbs.db
+.vscode/

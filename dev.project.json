@@ -1,0 +1,17 @@
+{
+	"name": "Keystone Development",
+
+	"tree": {
+		"$className": "DataModel",
+
+		"ReplicatedStorage": {
+			"Packages": {
+				"$path": "Packages"
+			},
+
+			"Keystone": {
+				"$path": "src/Keystone"
+			}
+		}
+	}
+}

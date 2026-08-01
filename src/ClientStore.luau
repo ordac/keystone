@@ -1,6 +1,7 @@
 --!strict
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Signal = require(ReplicatedStorage.Packages.Signal)
+local Packages = script.Parent.Parent
+
+local Signal = require(Packages.Signal)
 local Types = require(script.Parent.Types)
 
 type Path = Types.Path

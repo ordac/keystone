@@ -1,6 +1,7 @@
 --!strict
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Signal = require(ReplicatedStorage.Packages.Signal)
+local Packages = script.Parent.Parent
+
+local Signal = require(Packages.Signal)
 local Types = require(script.Parent.Types)
 
 type Path = Types.Path
@@ -34,12 +35,13 @@ function Profile.new<T>(store: ServerStore<T>, player: Player, data: T, session:
 		SessionLost = false,
 
 		Saving = false,
+		Releasing = false,
 		SaveQueued = false,
 		Revision = 0,
 		LastSave = nil,
 
 		Changed = Signal.new(),
-		ChangeSignals = {},
+		ChangedSignals = {},
 	}, Profile) :: any
 
 	return self

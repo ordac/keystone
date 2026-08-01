@@ -217,9 +217,15 @@ function ServerStore._acquireSession<T>(self: ServerStore<T>, player: Player, se
 			sessionMetadata.SessionPlaceId = game.PlaceId
 			sessionMetadata.SessionUpdatedAt = os.time()
 
+			local data = oldData
+
+			if data == nil then
+				data = self:_deepClone(self.Template)
+			end
+
 			acquired = true
 
-			return oldData, nil, sessionMetadata
+			return data, nil, sessionMetadata
 		end)
 	end)
 
@@ -289,16 +295,18 @@ function ServerStore._startAutosave<T>(self: ServerStore<T>): ()
 end
 
 function ServerStore._release<T>(self: ServerStore<T>, profile: Profile<T>): boolean
-	if profile.Released or profile.SessionLost then
+	if profile.Released or profile.SessionLost or profile.Releasing then
 		return false
 	end
 
-	-- Wait for an in-progress autosave before performing the final write.
+	profile.Releasing = true
+
 	while profile.Saving do
 		task.wait()
 	end
 
 	if profile.Released or profile.SessionLost then
+		profile.Releasing = false
 		return false
 	end
 
@@ -343,6 +351,7 @@ function ServerStore._release<T>(self: ServerStore<T>, profile: Profile<T>): boo
 
 		if sessionLost then
 			profile.Saving = false
+
 			self:_handleSessionLost(profile)
 
 			return false
@@ -361,6 +370,7 @@ function ServerStore._release<T>(self: ServerStore<T>, profile: Profile<T>): boo
 
 	if not released then
 		profile.Saving = false
+		profile.Releasing = false
 
 		warn(`[Keystone] Refusing to release unsaved profile for {profile.Player.Name}`)
 
@@ -371,6 +381,7 @@ function ServerStore._release<T>(self: ServerStore<T>, profile: Profile<T>): boo
 	profile.Dirty = false
 	profile.Saving = false
 	profile.Released = true
+	profile.Releasing = false
 
 	if self.Profiles[profile.Player] == profile then
 		self.Profiles[profile.Player] = nil
@@ -468,37 +479,41 @@ function ServerStore._save<T>(self: ServerStore<T>, profile: Profile<T>): boolea
 end
 
 function ServerStore._load<T>(self: ServerStore<T>, player: Player, session: Session): T?
-	local startedAt = os.clock()
+	local lockStartedAt = os.clock()
+	local failedAttempts = 0
 
 	while player.Parent == Players do
 		local result, loadError = self:_acquireSession(player, session)
 
 		if loadError == nil then
-			local data: T
+			if type(result) ~= "table" then
+				warn(`[Keystone] Invalid stored data for {player.Name}`)
 
-			if result == nil then
-				data = self:_deepClone(self.Template)
-			else
-				if type(result) ~= "table" then
-					warn(`[Keystone] Invalid stored data for {player.Name}`)
+				self:_releaseAcquiredSession(player, session)
 
-					self:_releaseAcquiredSession(player, session)
-
-					return nil
-				end
-
-				data = result
-				self:_reconcile(data, self.Template)
+				return nil
 			end
+
+			local data = result
+			self:_reconcile(data, self.Template)
 
 			return data
 		end
 
 		if loadError == "Failed" then
-			return nil
+			failedAttempts += 1
+
+			if failedAttempts >= self.SaveAttempts then
+				warn(`[Keystone] Exhausted load attempts for {player.Name}`)
+
+				return nil
+			end
+
+			task.wait(self.RetryDelay * failedAttempts)
+			continue
 		end
 
-		if os.clock() - startedAt >= self.SessionLockMaxWait then
+		if os.clock() - lockStartedAt >= self.SessionLockMaxWait then
 			warn(`[Keystone] Timed out waiting for session lock for {player.Name}`)
 
 			return nil
@@ -553,6 +568,7 @@ function ServerStore._handleSessionLost<T>(self: ServerStore<T>, profile: Profil
 	profile.SessionLost = true
 	profile.Released = true
 	profile.Saving = false
+	profile.Releasing = false
 	profile.SaveQueued = false
 
 	if self.Profiles[profile.Player] == profile then
@@ -573,6 +589,14 @@ function ServerStore._reconcile<T>(self: ServerStore<T>, data: { [any]: any }, t
 		local currentValue = data[key]
 
 		if currentValue == nil then
+			data[key] = self:_deepClone(templateValue)
+			continue
+		end
+
+		local currentType = type(currentValue)
+		local templateType = type(templateValue)
+
+		if currentType ~= templateType then
 			data[key] = self:_deepClone(templateValue)
 			continue
 		end

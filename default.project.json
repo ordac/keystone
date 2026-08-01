@@ -1,29 +1,6 @@
 {
-  "name": "keystone",
+  "name": "Keystone",
   "tree": {
-    "$className": "DataModel",
-
-    "ReplicatedStorage": {
-      "Keystone": {
-        "$path": "src/"
-      },
-      "Packages": {
-        "$path": "Packages"
-      }
-    },
-
-    "ServerScriptService": {
-      "Server": {
-        "$path": "test/Server.server.luau"
-      }
-    },
-
-    "StarterPlayer": {
-      "StarterPlayerScripts": {
-        "Client": {
-          "$path": "test/Client.client.luau"
-        }
-      }
-    }
+    "$path": "src"
   }
 }

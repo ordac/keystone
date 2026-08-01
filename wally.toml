@@ -1,10 +1,21 @@
 [package]
 name = "ordac-dev/keystone"
+description = "A session-locked player data library for Roblox"
 version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
+license = "MIT"
 authors = ["ordac_dev"]
 realm = "shared"
-license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
+repository = "https://github.com/ordac/keystone"
+
+exclude = [
+    "test",
+	"keystone.rbxlx",
+	"dev.project.json",
+	"rokit.toml",
+	"selene.toml",
+	"sourcemap.json",
+]
 
 [dependencies]
 Signal = "sleitnick/signal@2.0.3"

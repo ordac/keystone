@@ -1,7 +1,7 @@
 --!strict
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Packages = script.Parent.Parent
 
-local Signal = require(ReplicatedStorage.Packages.Signal)
+local Signal = require(Packages.Signal)
 
 export type Path = { string | number }
 
@@ -106,9 +106,10 @@ export type Profile<T> = {
 	SessionLost: boolean,
 
 	Saving: boolean,
+	Releasing: boolean,
 	SaveQueued: boolean,
 	Revision: number,
-	LastSave: number,
+	LastSave: number?,
 
 	Changed: Signal.Signal<Path, any, any>,
 	ChangedSignals: { [string]: Signal.Signal<any, any> },
