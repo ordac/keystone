@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="assets/hero.svg" alt="Keystone" width="320">
+  <img src="assets/hero.svg" alt="Keystone" width="256">
 </p>
 
 <p align="center">
-  Reliable, session-locked player data for Roblox.
+  Reliable, session-locked data persistence for Roblox.
 </p>
 
 <p align="center">
@@ -24,14 +24,14 @@
 
 ## Features
 
-• Session locking
-• Autosaving
-• Deep reconciliation
-• BindToClose support
-• Automatic retries
-• Reactive change signals
-• Client snapshots
-• Save queue
+- Session locking
+- Autosaving
+- Deep reconciliation
+- BindToClose support
+- Automatic retries
+- Reactive change signals
+- Client snapshots
+- Save queue
 
 ## Installation
 
@@ -42,10 +42,12 @@ Install Keystone with Wally:
 Keystone = "ordac/keystone@0.1.2"
 ```
 
-## Quick Start Guide
+## Quick Start
 
 ```lua
-local Keystone = require(...)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Keystone = require(ReplicatedStorage.Packages.Keystone)
 
 local Store = Keystone.create({
     Name = "PlayerData",
