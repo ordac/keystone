@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ordac/keystone/blob/main/LICENSE">
+  <a href="https://github.com/ordac/keystone/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-007ACC?style=flat-square" alt="MIT License">
   </a>
 
