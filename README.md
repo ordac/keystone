@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="assets/hero.png" alt="Keystone" width="600">
+  <img src="assets/hero.svg" alt="Keystone" width="600">
 </p>
 
-<h1 align="center">Keystone</h1>
+<hr/>
 
 <p align="center">
-  A session-locked player data library for Roblox.
+  A lightweight, session-locked player data library for Roblox.
 </p>
 
 <p align="center">
@@ -16,10 +16,6 @@
     <img src="https://img.shields.io/badge/Documentation-4F7CFF?style=for-the-badge" />
   </a> -->
 </p>
-
-# Keystone
-
-A lightweight, session-locked player data library for Roblox.
 
 ## Features
 
