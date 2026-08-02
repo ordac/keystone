@@ -7,6 +7,7 @@
 /Packages/
 
 /sourcemap.json
+dev.project.json
 
 .DS_Store
 Thumbs.db
