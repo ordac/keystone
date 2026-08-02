@@ -16,10 +16,24 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/license/ordac/keystone?style=flat-square">
-    <!-- <img src="https://img.shields.io/github/v/release/ordac/keystone?style=flat-square"> -->
-    <img src="https://img.shields.io/github/stars/ordac/keystone?style=flat-square">
-    <img src="https://img.shields.io/badge/Luau-Roblox-blue?style=flat-square">
+  <a href="https://github.com/ordac/keystone/blob/master/LICENSE">
+    <img
+      src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"
+      alt="MIT License"
+    >
+  </a>
+
+  <a href="https://github.com/ordac/keystone/stargazers">
+    <img
+      src="https://img.shields.io/badge/stars-0-lightgrey?style=flat-square&logo=github"
+      alt="GitHub stars"
+    >
+  </a>
+
+  <img
+    src="https://img.shields.io/badge/Luau-Roblox-00A2FF?style=flat-square"
+    alt="Luau for Roblox"
+  >
 </p>
 
 ## Features
