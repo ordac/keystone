@@ -16,13 +16,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ordac/keystone/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-007ACC?style=flat-square" alt="MIT License">
-  </a>
-
-  <a href="https://create.roblox.com/docs/luau">
-    <img src="https://img.shields.io/badge/Luau-Roblox-00A2FF?style=flat-square" alt="Luau">
-  </a>
+  <img src="https://img.shields.io/badge/license-MIT-007ACC?style=flat-square" alt="MIT License">
+  <img src="https://img.shields.io/badge/Luau-Roblox-00A2FF?style=flat-square" alt="Luau">
 </p>
 
 ## Features
