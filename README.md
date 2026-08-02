@@ -40,7 +40,7 @@
 Keystone = "ordac/keystone@0.1.2"
 ```
 
-## Usage
+## Quick Start Guide
 
 ```lua
 local Keystone = require(...)
