@@ -17,4 +17,4 @@ A lightweight, session-locked player data library for Roblox.
 
 ```toml
 [dependencies]
-Keystone = "ordac/keystone@0.1.1"
+Keystone = "ordac/keystone@0.1.2"
