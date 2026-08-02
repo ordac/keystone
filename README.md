@@ -38,6 +38,17 @@ Install Keystone with Wally:
 Keystone = "ordac/keystone@0.1.2"
 ```
 
+## Why Keystone?
+
+Keystone provides a simple, reliable data persistence API for Roblox while handling many obstacles that normally come with DataStore development.
+
+- Session locking
+- Automatic saving
+- Deep template reconciliation
+- Automatic retry handling
+- Safe shutdown support
+- Reactive change signals
+
 ## Quick Start
 
 ```lua
