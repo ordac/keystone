@@ -17,7 +17,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/github/license/ordac/keystone?style=flat-square">
-    <img src="https://img.shields.io/github/v/release/ordac/keystone?style=flat-square">
+    <!-- <img src="https://img.shields.io/github/v/release/ordac/keystone?style=flat-square"> -->
     <img src="https://img.shields.io/github/stars/ordac/keystone?style=flat-square">
     <img src="https://img.shields.io/badge/Luau-Roblox-blue?style=flat-square">
 </p>
