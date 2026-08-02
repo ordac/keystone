@@ -35,6 +35,8 @@
 
 ## Installation
 
+Install Keystone with Wally:
+
 ```toml
 [dependencies]
 Keystone = "ordac/keystone@0.1.2"
