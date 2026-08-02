@@ -8,11 +8,8 @@
 
 <p align="center">
   <a href="https://wally.run/package/ordac/keystone">
-    <img src="https://img.shields.io/badge/Install-Wally-AD4646?style=for-the-badge" />
+    <img src="assets/wally_button.svg" alt="Wally" height="40">
   </a>
-  <!-- <a href="https://github.com/ordac/keystone/wiki">
-    <img src="https://img.shields.io/badge/Documentation-4F7CFF?style=for-the-badge" />
-  </a> -->
 </p>
 
 <p align="center">
