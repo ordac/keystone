@@ -9,8 +9,7 @@
 
 <p align="center">
   <a href="https://wally.run/package/ordac/keystone">
-    <img src="assets/wally_button-light.svg#gh-light-mode-only" alt="Wally" height="32">
-    <img src="assets/wally_button-dark.svg#gh-dark-mode-only" alt="Wally" height="32">
+    <img src="assets/wally_button.svg" alt="Wally" height="32">
   </a>
 </p>
 
