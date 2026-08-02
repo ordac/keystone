@@ -17,17 +17,7 @@
 
 <p align="center">
   <a href="https://github.com/ordac/keystone/blob/master/LICENSE">
-    <img
-      src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"
-      alt="MIT License"
-    >
-  </a>
-
-  <a href="https://github.com/ordac/keystone/stargazers">
-    <img
-      src="https://img.shields.io/badge/stars-0-lightgrey?style=flat-square&logo=github"
-      alt="GitHub stars"
-    >
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License">
   </a>
 
   <img
