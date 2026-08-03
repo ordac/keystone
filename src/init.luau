@@ -1,4 +1,5 @@
 --!strict
+local RunService = game:GetService("RunService")
 local Types = require(script.Types)
 
 export type ServerStore<T> = Types.ServerStore<T>
@@ -7,15 +8,13 @@ export type Profile<T> = Types.Profile<T>
 
 local Keystone = {}
 
-Keystone.Server = function()
+if RunService:IsServer() then
 	local ServerStore = require(script.ServerStore)
 
 	function Keystone.create<T>(props: ServerStore.StoreProps<T>): ServerStore.ServerStore<T>
 		return ServerStore.new(props)
 	end
-end
-
-Keystone.Client = function()
+else
 	local ClientStore = require(script.ClientStore)
 
 	function Keystone.connect<T>(name: string): ClientStore.ClientStore<T>

@@ -35,7 +35,7 @@ Install Keystone with Wally:
 
 ```toml
 [dependencies]
-Keystone = "ordac/keystone@0.1.3"
+Keystone = "ordac/keystone@0.1.4"
 ```
 
 ## Why Keystone?
